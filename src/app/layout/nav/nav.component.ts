@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {currTheme, theme, ThemeEnum} from '../../signals/theme.signal';
+import { SwitcherThemeComponent } from '../../components/switcher-theme/switcher-theme.component';
 
 @Component({
     selector: 'app-nav',
@@ -15,24 +15,11 @@ import {currTheme, theme, ThemeEnum} from '../../signals/theme.signal';
             </ul>
             <ul>
                 <li>
-                    <details role="list" dir="rtl">
-                        <summary aria-haspopup="listbox" role="link" class="secondary">{{currTheme()}}</summary>
-                        <ul role="listbox">
-                            <li>
-                                <a href="#" data-theme-switcher="light" (click)="setTheme(themeEnum.light)">Light</a>
-                            </li>
-                            <li><a href="#" data-theme-switcher="dark" (click)="setTheme(themeEnum.dark)">Dark</a></li>
-                        </ul>
-                    </details>
+                    <app-switcher-theme></app-switcher-theme>
                 </li>
             </ul>
         </nav>
     `,
+    imports: [SwitcherThemeComponent],
 })
-export class NavComponent {
-    theme = theme();
-    currTheme = currTheme;
-    themeEnum = ThemeEnum;
-
-    setTheme = (currTheme: ThemeEnum): void => theme.update(() => currTheme);
-}
+export class NavComponent {}

@@ -13,35 +13,8 @@ import {Router} from "@angular/router";
 @Component({
   standalone: true,
   selector: 'app-login',
-  imports: [FormsModule, ReactiveFormsModule],
-  template: `
-    <article class="grid">
-      <div>
-        <hgroup>
-          <h1>Sign(al) in</h1>
-          <h2>A simple signal to manage your login</h2>
-        </hgroup>
-        <form [formGroup]="userFormGroup">
-          <input
-            type="text"
-            name="login"
-            formControlName="login"
-            placeholder="Login"
-          />
-          <input
-            type="password"
-            name="password"
-            formControlName="password"
-            placeholder="Password"
-          />
-          <button type="submit" class="contrast" (click)="onLogin()">
-            Login
-          </button>
-        </form>
-      </div>
-      <div></div>
-    </article>
-  `,
+  templateUrl: './login.component.html',
+  imports: [FormsModule, ReactiveFormsModule]
 })
 export class LoginComponent {
   private readonly router = inject(Router);
