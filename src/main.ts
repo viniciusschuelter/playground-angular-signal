@@ -12,7 +12,7 @@ bootstrapApplication(AppComponent, {
         {
           path: 'playground',
           loadComponent: () => PlaygroundComponent,
-          canActivate: [() => isLogged()]
+          // canActivate: [() => isLogged()]
         },
         {
           path: 'login',
