@@ -1,12 +1,25 @@
-import { enableProdMode } from '@angular/core';
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
+import { bootstrapApplication } from '@angular/platform-browser';
+import { provideRouter, withHashLocation } from '@angular/router';
+import { AppComponent } from './app/app.component';
+import { LoginComponent } from './app/components/login/login.component';
+import { PlaygroundComponent } from './app/components/playground/playground.component';
 
-import { AppModule } from './app/app.module';
-import { environment } from './environments/environment';
-
-if (environment.production) {
-  enableProdMode();
-}
-
-platformBrowserDynamic().bootstrapModule(AppModule)
-  .catch(err => console.error(err));
+bootstrapApplication(AppComponent, {
+  providers: [
+    provideRouter(
+      [
+        {
+          path: 'playground',
+          loadComponent: () => PlaygroundComponent,
+          canActivate: [() => true],
+        },
+        {
+          path: 'login',
+          loadComponent: () => LoginComponent,
+        },
+        { path: '**', redirectTo: 'playground', pathMatch: 'full' },
+      ],
+      withHashLocation()
+    ),
+  ],
+}).catch((err) => console.error(err));

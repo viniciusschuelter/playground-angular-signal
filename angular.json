@@ -102,5 +102,8 @@
       }
     }
   },
-  "defaultProject": "playground-angular-signal"
+  "defaultProject": "playground-angular-signal",
+  "cli": {
+    "analytics": "2a81daae-d40b-4a84-85a0-cf35dcdcc598"
+  }
 }
