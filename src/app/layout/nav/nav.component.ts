@@ -21,5 +21,13 @@ import { SwitcherThemeComponent } from '../../components/switcher-theme/switcher
         </nav>
     `,
     imports: [SwitcherThemeComponent],
+    styles: [
+        `
+            :host {
+                display: block;
+                padding: 0.5rem 1.5rem 2rem 1.5rem;
+            }
+        `,
+    ],
 })
 export class NavComponent {}

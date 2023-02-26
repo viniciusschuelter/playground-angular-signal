@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { NavComponent } from './layout/nav/nav.component';
+import {FooterComponent} from "./layout/footer/footer.component";
 
 @Component({
     selector: 'app-root',
@@ -10,15 +11,8 @@ import { NavComponent } from './layout/nav/nav.component';
         <main class="container">
             <router-outlet></router-outlet>
         </main>
-        <footer class="container-fluid">
-            <small>
-                Built with
-                <a href="https://picocss.com" class="secondary">Pico</a>
-                •
-                <a href="https://github.com/picocss/examples/tree/master/sign-in/" class="secondary">Source code</a>
-            </small>
-        </footer>
+        <app-footer></app-footer>
     `,
-    imports: [RouterOutlet, NavComponent],
+    imports: [RouterOutlet, NavComponent, FooterComponent],
 })
 export class AppComponent {}
