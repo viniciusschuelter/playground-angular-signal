@@ -5,7 +5,6 @@ import { count, counter, doubleCount, evenOrOdd } from '../../signals/playground
 @Component({
     standalone: true,
     selector: 'app-playground',
-    imports: [FormsModule],
     template: `
         <div class="">
             <input type="number" placeholder="Counter is 0" [ngModel]="count()" (ngModelChange)="setCounter($event)" />
@@ -14,6 +13,7 @@ import { count, counter, doubleCount, evenOrOdd } from '../../signals/playground
             <p>The double is {{ doubleCount() }}</p>
         </div>
     `,
+    imports: [FormsModule],
 })
 export class PlaygroundComponent {
     counter = counter();
