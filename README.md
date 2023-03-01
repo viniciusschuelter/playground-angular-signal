@@ -1,6 +1,10 @@
-# PlaygroundAngularSignal
+# 👋 Playground Angular Signal
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.0.0-next.0.
+
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b734a558-a371-440a-8c2b-95ee23cfb199/deploy-status)](https://app.netlify.com/sites/playground-angular-signal/deploys)
+
+[Live demo](https://playground-angular-signal.netlify.app)
 
 ## Development server
 

@@ -33,6 +33,6 @@ export class LoginComponent {
   }
 
   goToPlayground(): void {
-    this.router.navigateByUrl('playground');
+    this.router.navigateByUrl('home');
   }
 }

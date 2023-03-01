@@ -1,5 +1,8 @@
 import { Component } from '@angular/core';
 import { SwitcherThemeComponent } from '../../components/switcher-theme/switcher-theme.component';
+import {RouterLink} from "@angular/router";
+import {isLogged} from "../../signals/user.signal";
+import {NgIf} from "@angular/common";
 
 @Component({
     selector: 'app-nav',
@@ -13,14 +16,24 @@ import { SwitcherThemeComponent } from '../../components/switcher-theme/switcher
                     </a>
                 </li>
             </ul>
-            <ul>
+            <ul *ngIf="isLogged()">
+              <li>
+                <a [routerLink]="'home'" class="contrast" onclick="event.preventDefault()">
+                  <strong>Home</strong>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="'dimension-c137'" class="contrast" onclick="event.preventDefault()">
+                  <strong>Dimension-C137</strong>
+                </a>
+              </li>
                 <li>
                     <app-switcher-theme></app-switcher-theme>
                 </li>
             </ul>
         </nav>
     `,
-    imports: [SwitcherThemeComponent],
+    imports: [SwitcherThemeComponent, RouterLink, NgIf],
     styles: [
         `
             :host {
@@ -30,4 +43,6 @@ import { SwitcherThemeComponent } from '../../components/switcher-theme/switcher
         `,
     ],
 })
-export class NavComponent {}
+export class NavComponent {
+  isLogged = isLogged;
+}
