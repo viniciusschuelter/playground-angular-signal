@@ -15,4 +15,7 @@ export class DimensionC137Signal {
             this.http.get(`${this.endpoint}?name=${term}`).pipe(map((response: any) => response.results))
         )
     );
+    hundredCharacters$: Observable<CharacterModel[]> = this.http
+        .get(`${this.endpoint}/${[...Array(100).keys()].toString()}`)
+        .pipe(map((response: any) => response));
 }

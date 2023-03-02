@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, Component, Input } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CharacterModel } from '../../interfaces/character.interface';
 
 @Component({
@@ -11,8 +11,7 @@ import { CharacterModel } from '../../interfaces/character.interface';
                 {{ character.name }}
             </h4>
         </div>
-    `,
-    changeDetection: ChangeDetectionStrategy.OnPush,
+    `
 })
 export class CardComponent {
     @Input() character!: CharacterModel;

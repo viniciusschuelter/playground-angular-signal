@@ -16,7 +16,7 @@ import {NgIf} from "@angular/common";
                     </a>
                 </li>
             </ul>
-            <ul *ngIf="isLogged()">
+            <ul *ngIf="isLogged() || true">
               <li>
                 <a [routerLink]="'home'" class="contrast" onclick="event.preventDefault()">
                   <strong>Home</strong>
@@ -25,6 +25,11 @@ import {NgIf} from "@angular/common";
               <li>
                 <a [routerLink]="'dimension-c137'" class="contrast" onclick="event.preventDefault()">
                   <strong>Dimension-C137</strong>
+                </a>
+              </li>
+              <li>
+                <a [routerLink]="'lazy-renderer'" class="contrast" onclick="event.preventDefault()">
+                  <strong>Lazy Renderer</strong>
                 </a>
               </li>
                 <li>

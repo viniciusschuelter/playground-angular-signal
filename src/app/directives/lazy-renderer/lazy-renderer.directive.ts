@@ -1,8 +1,16 @@
-import {AfterViewInit, Directive, effect, ElementRef, EventEmitter, Input, NgZone, Output, Signal} from '@angular/core';
+import {
+    AfterViewInit,
+    Directive,
+    effect,
+    ElementRef,
+    EventEmitter,
+    Input,
+    NgZone,
+    Output,
+    Signal,
+} from '@angular/core';
 
-import { fromIntersectionObserver } from '../../utils/from-intersection-observer';
-import {fromSignal} from "../../utils/from-signal";
-import {counter} from "../../signals/playground.signal";
+import { fromIntersectionSignal } from '../../utils/from-intersection-signal';
 
 @Directive({ standalone: true, selector: '[lazyRenderer]' })
 export class LazyRendererDirective implements AfterViewInit {
@@ -11,28 +19,23 @@ export class LazyRendererDirective implements AfterViewInit {
     @Input() intersectionRoot!: HTMLElement;
     @Input() intersectionThreshold!: number | number[];
 
-    @Output() visibilityChange = new EventEmitter<boolean>();
+    @Output() rendered = new EventEmitter<boolean>();
 
-    constructor(private element: ElementRef, private ngZone: NgZone) {}
+    constructor(private element: ElementRef) {}
 
     ngAfterViewInit() {
-        this.ngZone.runOutsideAngular(() => {
-            const element = this.element.nativeElement;
-            const config = {
-                root: this.intersectionRoot,
-                rootMargin: this.intersectionRootMargin,
-                threshold: this.intersectionThreshold,
-            };
+        const element = this.element.nativeElement;
+        const config = {
+            root: this.intersectionRoot,
+            rootMargin: this.intersectionRootMargin,
+            threshold: this.intersectionThreshold,
+        };
 
-            const signalObserver: Signal<boolean> = fromIntersectionObserver(element, config);
+        const signalObserver: Signal<boolean> = fromIntersectionSignal(element, config);
 
-            effect(() => {
-              this.visibilityChange.emit(signalObserver());
-              console.log('the card is rendered: ' + signalObserver())
-            });
-            // .subscribe(status => {
-            //   this.ngZone.run(() => this.visibilityChange.emit(status));
-            // });
+        effect(() => {
+            this.rendered.emit(signalObserver());
+            console.log('the card is rendered: ' + signalObserver());
         });
     }
 }
