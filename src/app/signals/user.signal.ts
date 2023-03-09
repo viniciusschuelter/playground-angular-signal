@@ -8,7 +8,7 @@ export interface User {
 export const user = signal<User | null>(JSON.parse(localStorage.getItem('user') as any));
 
 export const isLogged = computed(() => {
-  !user() && !location.href.includes('login') && location.assign('/login');
+  // !user() && !location.href.includes('login') && location.assign('/login');
   return !!user();
 });
 
