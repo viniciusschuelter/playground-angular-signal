@@ -30,7 +30,7 @@ bootstrapApplication(AppComponent, {
                     path: 'login',
                     loadComponent: () => LoginComponent,
                 },
-                { path: '**', redirectTo: 'home', pathMatch: 'full' },
+                { path: '**', redirectTo: 'login', pathMatch: 'full' },
             ]
         ),
     ],
