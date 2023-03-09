@@ -28,11 +28,8 @@ export class LoginComponent {
   onLogin(): void {
     if (this.userFormGroup.valid) {
       user.update(() => this.userFormGroup.value as User);
-      this.goToPlayground();
+      localStorage.setItem('user', JSON.stringify(this.userFormGroup.value));
+      this.router.navigateByUrl('home');
     }
-  }
-
-  goToPlayground(): void {
-    this.router.navigateByUrl('home');
   }
 }

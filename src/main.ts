@@ -14,25 +14,24 @@ bootstrapApplication(AppComponent, {
                 {
                     path: 'home',
                     loadComponent: () => PlaygroundComponent,
-                    // canActivate: [() => isLogged()],
+                    canActivate: [() => isLogged()],
                 },
                 {
                     path: 'dimension-c137',
                     loadComponent: () => DimensionC137Component,
-                    // canActivate: [() => isLogged()],
+                    canActivate: [() => isLogged()],
                 },
                 {
                     path: 'lazy-renderer',
                     loadComponent: () => LazyRendererComponent,
-                    // canActivate: [() => isLogged()],
+                    canActivate: [() => isLogged()],
                 },
                 {
                     path: 'login',
                     loadComponent: () => LoginComponent,
                 },
-                { path: '**', redirectTo: 'login', pathMatch: 'full' },
-            ],
-            withHashLocation()
+                { path: '**', redirectTo: 'home', pathMatch: 'full' },
+            ]
         ),
     ],
 }).catch((err) => console.error(err));
