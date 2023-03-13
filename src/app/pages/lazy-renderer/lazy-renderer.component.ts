@@ -11,6 +11,7 @@ import { DimensionC137Signal } from '../../signals/dimension-c137.signal';
     selector: 'app-lazy-renderer',
     template: `
         <div class="container container-fluid">
+          <h3>Example using Intersection Observer and signals(fromSignalVisibility?)</h3>
             <div class="container-grid">
                 <div
                     *ngFor="let character of dimensionSignal.hundredCharacters$ | async"

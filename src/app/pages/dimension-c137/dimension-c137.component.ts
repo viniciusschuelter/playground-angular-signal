@@ -10,6 +10,7 @@ import { DimensionC137Signal } from '../../signals/dimension-c137.signal';
   selector: 'app-dimension-c137',
   template: `
     <div class="container container-fluid">
+      <h3>Example using behavior subject and signals(fromSignals)</h3>
       <input
         type="text"
         placeholder="Search"
